@@ -1,0 +1,26 @@
+@model IEnumerable<Salon.Models.Stylist>
+
+<h2>Stylists</h2>
+
+<p>
+    @Html.ActionLink("Add New Stylist", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Specialty</th>
+        <th></th>
+    </tr>
+    @foreach (var stylist in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => stylist.Name)</td>
+            <td>@Html.DisplayFor(modelItem => stylist.Specialty)</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = stylist.StylistId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = stylist.StylistId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = stylist.StylistId })
+            </td>
+        </tr>
+    }
+</table>

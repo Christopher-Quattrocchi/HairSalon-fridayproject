@@ -1,0 +1,23 @@
+@model Salon.Models.Stylist
+
+<h2>@Model.Name</h2>
+
+<div>
+    <h4>Specialty</h4>
+    <p>@Model.Specialty</p>
+</div>
+
+<div>
+    <h4>Clients</h4>
+    <ul>
+        @foreach (var client in Model.Clients)
+        {
+            <li>@client.Name</li>
+        }
+    </ul>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StylistId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
