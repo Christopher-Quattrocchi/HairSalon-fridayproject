@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿//in homecontroller
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Salon.Models;
 
