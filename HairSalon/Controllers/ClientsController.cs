@@ -35,14 +35,18 @@ public IActionResult Index()
   [HttpPost]
   public IActionResult Create(Client client)
   {
-    if (ModelState.IsValid)
-    {
+    //debugging
+    Console.WriteLine($"StylistId: {client.StylistId}");
+
+
+    // if (ModelState.IsValid)
+    // {
       _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index"); 
-    }
-    ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name", client.StylistId);
-    return View(client);
+    // }
+    // ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name", client.StylistId);
+    // return View(client);
   }
 
   public IActionResult Detail(int id)
