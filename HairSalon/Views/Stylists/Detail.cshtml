@@ -9,12 +9,22 @@
 
 <div>
     <h4>Clients</h4>
-    <ul>
-        @foreach (var client in Model.Clients)
-        {
-            <li>@client.Name</li>
-        }
-    </ul>
+    @if (Model.Clients.Any())
+    {
+        <ul>
+            @foreach (var client in Model.Clients)
+            {
+                <li>
+                    @Html.ActionLink(client.Name, "Detail", "Clients", new { id = client.ClientId }, null)
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>This stylist has no current clients.</p>
+    }
+
 </div>
 
 <p>

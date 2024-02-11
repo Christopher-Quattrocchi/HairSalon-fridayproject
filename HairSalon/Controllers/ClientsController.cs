@@ -18,10 +18,16 @@ public class ClientsController : Controller
     _db = db;
   }
 
-  [HttpGet]
-  public IActionResult Create()
+  public IActionResult Index()
   {
-    ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");
+    return View();
+  }
+
+  [HttpGet]
+  public IActionResult Create(int? stylistId)
+  {
+    var stylists = _db.Stylists.Select(s => new { s.StylistId, s.Name});
+    ViewBag.Stylists = new SelectList(stylists, "StylistId", "Name", stylistId);
     return View();
   }
 
@@ -32,9 +38,19 @@ public class ClientsController : Controller
     {
       _db.Clients.Add(client);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Stylists");
     }
     ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name", client.StylistId);
+    return View(client);
+  }
+
+  public IActionResult Detail(int id)
+  {
+    var client = _db.Clients.Include(c => c.Stylist).FirstOrDefault(c => c.ClientId == id);
+    if (client == null)
+    {
+      return NotFound();
+    }
     return View(client);
   }
 }

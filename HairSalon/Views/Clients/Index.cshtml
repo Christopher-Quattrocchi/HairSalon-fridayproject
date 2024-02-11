@@ -1,0 +1,32 @@
+@model IEnumerable<HairSalon.Models.Client>
+
+<h2>Clients</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stylist</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var client in Model)
+    {
+      <tr>
+        <td>@Html.DisplayFor(modelItem => client.Name)</td>
+        <td>@Html.DisplayFor(modelItem => client.Stylist.Name)</td>
+        <td>
+          @* @Html.ActionLink("Details", "Detail", new { id = client.ClientId }) *@
+          @Html.ActionLink("View Details", "Detail", "Stylists", new { id = client.Stylist.StylistId }, null) |
+          @Html.ActionLink("Edit", "Edit", new { id = client.ClientId }) |
+          @Html.ActionLink("Delete", "Delete", new { id = client.ClientId })
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<p>
+  @Html.ActionLink("Add New Client", "Create", "Clients", null, new { @class = "btn btn-primary" })
+</p>

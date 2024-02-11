@@ -43,5 +43,17 @@ public class StylistsController : Controller
     return View(stylists);
   }
 
+  public IActionResult Detail(int id)
+  {
+    var stylist = _db.Stylists.Include(s => s.Clients).FirstOrDefault(s => s.StylistId == id);
+
+    if (stylist == null)
+    {
+      return NotFound();
+    }
+
+    return View(stylist);
+  }
+
 }
   

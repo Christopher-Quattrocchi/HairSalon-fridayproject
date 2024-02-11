@@ -1,0 +1,13 @@
+@model HairSalon.Models.Client
+
+<h2>Client: @Model.Name</h2>
+
+<div>
+    <h4>Stylist:</h4>
+    <p>@Model.Stylist.Name</p>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
+    @Html.ActionLink("Back to Stylist", "Details", "Stylists", new { id = Model.StylistId }, null)
+</p>

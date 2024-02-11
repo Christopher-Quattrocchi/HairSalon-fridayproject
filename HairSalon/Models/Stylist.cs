@@ -16,7 +16,7 @@ namespace HairSalon.Models
     public string Name {get; set;}
     [Required]
     public string Specialty {get; set;}
-    public List<Client> Clients { get; set; } = new List<Client>(); //nav for ef core
+    public virtual List<Client> Clients { get; set; } = new List<Client>(); //nav for ef core
 
     // public Stylist()
     // {
