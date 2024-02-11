@@ -1,9 +1,9 @@
 ﻿//in homecontroller
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Salon.Models;
+using HairSalon.Models;
 
-namespace Salon.Controllers;
+namespace HairSalon.Controllers;
 
 public class HomeController : Controller
 {

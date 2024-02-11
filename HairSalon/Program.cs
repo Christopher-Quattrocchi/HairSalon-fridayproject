@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Salon.Models;
+using HairSalon.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddDbContext<SalonContext>(options =>
+builder.Services.AddDbContext<HairSalonContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 21))));
 
