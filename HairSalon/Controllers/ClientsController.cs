@@ -28,7 +28,7 @@ public IActionResult Index()
   public IActionResult Create(int? stylistId)
   {
     var stylists = _db.Stylists.Select(s => new { s.StylistId, s.Name});
-    ViewBag.Stylists = new SelectList(stylists, "StylistId", "Name", stylistId);
+    ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");//fixed outdated syntax. everything should be StylistId now
     return View();
   }
 
