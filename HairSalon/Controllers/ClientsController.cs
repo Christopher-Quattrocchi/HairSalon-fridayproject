@@ -27,7 +27,7 @@ public IActionResult Index()
   [HttpGet]
   public IActionResult Create(int? stylistId)
   {
-    var stylists = _db.Stylists.Select(s => new { s.StylistId, s.Name});
+    // var stylists = _db.Stylists.Select(s => new { s.StylistId, s.Name});  //don't think this is necessary
     ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");//fixed outdated syntax. everything should be StylistId now
     return View();
   }
