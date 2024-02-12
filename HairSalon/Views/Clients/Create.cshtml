@@ -23,13 +23,13 @@
 }
 
 @* Debugging ViewBag.Stylists *@
-<h3>Stylists in ViewBag</h3>
+@* <h3>Stylists in ViewBag</h3>
 <ul>
 @foreach (var stylist in (SelectList)ViewBag.Stylists)
 {
     <li>Id: @stylist.Value - Name: @stylist.Text</li>
 }
-</ul>
+</ul> *@
 
 @using(Html.BeginForm())
 {
