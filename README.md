@@ -72,7 +72,7 @@ This project uses a SQL database to store and manage data. Follow the instructio
 dotnet ef database update
 
 ## Known Bugs
-Edit works, having trouble getting delete to work
+Unknown
 
 ## License
 This project is licensed under the MIT License.

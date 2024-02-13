@@ -81,7 +81,7 @@ public class StylistsController : Controller
   [HttpGet]
   public IActionResult Delete(int id)
   {
-    var stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+    Stylist stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
     if (stylist == null)
     {
       return NotFound();
@@ -89,10 +89,10 @@ public class StylistsController : Controller
     return View(stylist);
   }
 
-  [HttpPost, ActionName("DeleteConfirmed")]
+  [HttpPost, ActionName("Delete")]
   public IActionResult DeleteConfirmed(int id)
   {
-    var stylist = _db.Stylists.Find(id);
+    Stylist stylist = _db.Stylists.Find(id);
     if (stylist != null)
     {
       _db.Stylists.Remove(stylist);
